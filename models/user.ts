@@ -6,6 +6,8 @@ import { NextFunction, Request, Response } from 'express';
 import { ErrorHandler } from '../helpers/errors';
 import IUser from '../interfaces/IUser';
 
+/* ---------------------------------Middleware------------------------------------------ */
+
 const validateUser = (req: Request, res: Response, next: NextFunction) => {
   let presence: Joi.PresenceMode = 'optional';
   if (req.method === 'POST') {
@@ -91,7 +93,7 @@ const verifyPassword = (
   return argon2.verify(hashedPassword, password, hashingOptions);
 };
 
-// <------------------ models ----------------------->
+/* ---------------------------------Models------------------------------------------ */
 
 const getAll = (
   sortBy: string,
